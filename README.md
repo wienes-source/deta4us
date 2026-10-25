@@ -1,39 +1,44 @@
-# Deta4Us — website
+# Deta4Us — één website, geen dubbele pagina's
 
-Professionele statische Nederlandstalige website voor Deta4Us, ontwikkeld voor GitHub Pages. Geen WordPress-abonnement en geen build-tool nodig.
+Deze GitHub-repository is de **broncode** voor de vernieuwde website. De bestaande WordPress-website op deta4us.com is nog live. Geen DNS of WordPress-instellingen wijzigen voordat de nieuwe hosting getest is.
 
-## Bestanden
-- index.html — responsive homepage, diensten, opdrachtgevers, professionals, contactformulier.
-- privacy.html — privacyverklaring (controleer op juiste bedrijfsgegevens).
-- favicon.svg — website-icoon.
-- CNAME — gewenst hoofddomein: deta4us.com.
-- .nojekyll — publiceert bestanden zonder Jekyll.
+## Samengevoegde inhoud
 
-## Live zetten op GitHub Pages
-1. Ga naar https://github.com/wienes-source/deta4us/settings/pages
-2. Kies bij Build and deployment: Deploy from a branch.
-3. Kies branch main en folder /(root), daarna Save.
-4. Stel onder Custom domain deta4us.com in en kies Save. Verifieer bij voorkeur eerst het eigendom via GitHub.
-5. Test de deployment. Zolang DNS nog naar WordPress wijst, blijft de WordPress-website zichtbaar op uw domein.
+- **index.html**: één homepage met alle diensten, opdrachtgeverinformatie, kandidaten, starters, internationale professionals, functieprofielen, werkwijze en één contactformulier.
+- **privacy.html**: de privacyverklaring voor het nieuwe formulier.
+- **voorwaarden.html**: de bestaande algemene voorwaarden (oorspronkelijke WordPress-versie november 2025). Controleer vóór livegang of deze zakelijk en juridisch nog kloppen.
+- **_redirects**: mapping van 26 oude WordPress-URL's naar de samengevoegde onderdelen; werkt bij Netlify.
+- **bedankt.html**, **404.html**, **favicon.svg**, **sitemap.xml**, **robots.txt**, **.nojekyll**, **CNAME**: functionele ondersteunende bestanden, geen dubbele openbare dienstenpagina's.
 
-## DNS voor deta4us.com
-Pas de DNS pas aan als u de nieuwe versie wilt inschakelen.
-- A-records voor @: 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153.
-- CNAME voor www: wienes-source.github.io.
-- Verwijder alleen conflicterende oude A/AAAA/CNAME records voor de website.
-- Behoud bestaande MX, SPF, DKIM en DMARC e-mailrecords ongewijzigd.
-- Schakel Enforce HTTPS in zodra GitHub dit mogelijk maakt.
+## Waarom niet rechtstreeks GitHub Pages?
 
-DNS-wijzigingen kunnen tot 24 uur duren. Domeinregistratie en websitehosting zijn gescheiden.
+GitHub Pages is volgens de eigen voorwaarden niet bedoeld als gratis hosting om een commerciële bedrijfswebsite te exploiteren. Gebruik GitHub daarom voor **versiebeheer** en een voor commercieel gebruik geschikte host, bijvoorbeeld **Netlify Free** (controleer de actuele limieten). Vercel Hobby is evenmin geschikt voor bedrijfsmatig gebruik zonder passend betaald plan.
 
-Documentatie:
-https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+## Beoogde livegang: GitHub → Netlify → deta4us.com
 
-## Contactformulier
-Het formulier post via https://formsubmit.co/ naar Deta4us@icloud.com. De eerste inzending leidt tot een bevestigingsmail aan dat adres. Activeer de koppeling met die e-mail; anders kunnen berichten niet worden bezorgd. Verifieer het juiste zakelijke ontvangstadres.
+1. Koppel het bestaande repository `wienes-source/deta4us` aan een bestaand of nieuw Netlify-account. Maak **geen extra Deta4Us-repository**.
+2. Publiceer branch `main`, met repository-root als publicatiedirectory, zonder buildcommand.
+3. Test de gegenereerde `*.netlify.app` URL op mobiel en desktop. Controleer links, documenten, toegankelijkheid, SEO en formulieren.
+4. Vergelijk eerst alle bestaande WordPress-pagina's met de samengevoegde website. **Unieke pagina's** (oude nieuwsarchieven, brochures, specifieke vacaturedetails, teamprofielen en andere informatie) zijn nog niet allemaal volledig overgenomen. Migreer of archiveer bewust; zet het hoofddomein pas daarna om.
+5. Voeg in Netlify het aangepaste domein `deta4us.com` en de `www`-variant toe en verkrijg de EXACTE DNS-instructies van Netlify.
+6. Wijzig bij WordPress.com DNS uitsluitend de webrecords die met die instructies conflicteren. Behoud MX, SPF, DKIM, DMARC en de domeinregistratie.
+7. Controleer geldige HTTPS-certificaten, `deta4us.com`, `www.deta4us.com` en oude URL-redirects.
+8. Verzend een eerste testformulier; bevestig de activatiemail van **FormSubmit** in `Deta4us@icloud.com`. Verzend vervolgens een tweede test om de daadwerkelijke aflevering te controleren.
+9. Alleen nadat alle controles slagen: beoordeel of het betaalde WordPress Personal-abonnement moet worden beëindigd. **Zeg de losse domeinregistratie nooit per ongeluk op.**
 
-FormSubmit is een externe dienst en verwerkt persoonsgegevens bij inzendingen. Controleer de privacyverklaring en eventuele benodigde verwerkersafspraken voordat u de site definitief publiceert. GitHub Pages zelf ondersteunt geen PHP of server-side e-mail.
+## Opmerkingen over overgenomen informatie
 
-## Onderhoud
-Pas HTML-bestanden aan via GitHub en commit naar main. Als GitHub Pages is ingeschakeld, publiceert het nieuwe versies automatisch.
+De oude WordPress-website had tegenstrijdige e-mailadressen, telefoonnummers en vestigingsgegevens; voor de nieuwe pagina is voorlopig uitsluitend `Deta4us@icloud.com` gehanteerd, omdat dat op de bestaande Contact-pagina staat. Verifieer het gewenste officiële bedrijfsadres, handelsregistratie en contactnummer voordat ze openbaar worden overgenomen.
+
+De oude pagina's bevatten historische vacatures en ambitieuze claims (zoals gegarandeerde bonussen en aantallen kandidaten). Die claims zijn niet overgenomen. De enkele functieprofielsectie bevat **voorbeelden**, geen garantie dat een vacature nog openstaat.
+
+De privacyverklaring en algemene voorwaarden vereisen een inhoudelijke check op actuele bedrijfsgegevens, juridische verplichtingen en gegevensverwerking door externe formulierdienst FormSubmit.
+
+## Technisch
+
+HTML/CSS en enkele regels JavaScript. Geen buildstap, geen database, geen API-sleutels of geheimen in dit openbare repository. Het contactformulier gebruikt een externe dienst; GitHub zelf verzendt geen e-mails.
+
+Bronnen:
+- GitHub Pages beperkingen: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
+- Netlify Free: https://www.netlify.com/pricing/
+- Netlify Git deployment: https://docs.netlify.com/build/configure-builds/repo-permissions-linking/
