@@ -1,0 +1,31 @@
+# Deta4Us: bestaande WordPress-URL's naar de enkele samengevoegde pagina en twee noodzakelijke juridische documenten.
+# Wordt pas actief bij hosting op Netlify. Niets is hiermee live omgezet.
+/home/                        /                         301
+/contact/                     /#contact                 301
+/contact-2/                   /#contact                 301
+/opdrachtgevers/              /#opdrachtgevers          301
+/kandidaten/                  /#professionals           301
+/voordelen/                   /#professionals           301
+/afgestudeerde/               /#professionals           301
+/internationale-werknemers/   /#professionals           301
+/vakgebied/                   /#diensten                301
+/database/                    /#vacatures               301
+/vacatures/                   /#vacatures               301
+/vacatures-2/                 /#vacatures               301
+/ing-vacatures/               /#vacatures               301
+/hr-business-partner-den-haag/ /#vacatures              301
+/financieel-analist-amsterdam/ /#vacatures              301
+/it-project-manager-rotterdam/ /#vacatures              301
+/compliance-risk-specialist-utrecht/ /#vacatures        301
+/secretaresse-management-assistent-den-haag/ /#vacatures 301
+/ai-digitalisering-specialist/ /#vacatures              301
+/manager-finance-semi-controller/ /#vacatures           301
+/senior-financial-controllerfinancieel/ /#vacatures      301
+/financieel-administratief-medewerker/ /#vacatures      301
+/coordinerend-financieel-adviseur-2/ /#vacatures         301
+/afdelingshoofd-financiele-dienst-adm/ /#vacatures      301
+/privacybeleid/               /privacy.html             301
+/algemene-voorwaarden/        /voorwaarden.html         301
+# NIET geredirect: archief/nieuws, historische vacatures met afwijkende details,
+# team, brochures en unieke content die niet volledig is gemigreerd.
+# Inventariseer deze voor definitieve DNS-omschakeling om inhoudsverlies te vermijden.
