@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://deta4us.com/sitemap.xml
